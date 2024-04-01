@@ -1,4 +1,5 @@
-public class Cliente {
+
+public class Conta{
     int numero;
     double saldo;
     String dono;
@@ -18,12 +19,15 @@ public class Cliente {
         }
         return false;
     }
-    boolean transferir(Cliente destino, double valor){
+    boolean transferir(Conta destino, double valor){
         boolean saque = this.saque(valor);
         if (saque){
             boolean deposito = destino.deposito(valor);
             return deposito;
         }
         return false;
+    }
+    void imprimir(){
+        System.out.printf("Dono : %s\nSaldo : %.2f\nNumero : %d\nAgencia : %s\n", this.dono, this.saldo, this.numero, this.agencia);
     }
 }
